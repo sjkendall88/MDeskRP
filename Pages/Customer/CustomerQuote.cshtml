@@ -4,50 +4,70 @@
     ViewData["Title"] = "CustomerQuote";
 }
 
-<h1>CustomerQuote</h1>
+<h1>Customer Quote</h1>
 <div>
     <h4>Customer</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor()
+            @Html.DisplayNameFor(model => model.Customer.CustomerID)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.DeskQuote.DeskQuoteID)
+            @Html.DisplayFor(model => model.Customer.CustomerID)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.DeskQuote.Customer.FirstName)
+            @Html.DisplayNameFor(model => model.Customer.FirstName)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.DeskQuote.Customer.FirstName)
+            @Html.DisplayFor(model => model.Customer.FirstName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.DeskQuote.Customer.LastName)
+            @Html.DisplayNameFor(model => model.Customer.LastName)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.DeskQuote.Customer.LastName)
+            @Html.DisplayFor(model => model.Customer.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.DeskQuotes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.DeskQuotes)
+        </dd>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Desk Quote ID</th>
+                    <th>Customer Name</th>
+                    <th>Desk Specifications</th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model.Customer.DeskQuotes)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DeskQuoteID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Customer)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DeskSpecs)
+                        </td>
+                        <td>
+                            <a asp-page="./CustomerQuoteEdit" asp-route-id="@item.DeskQuoteID">Edit</a> |
+                            <a asp-page="./CustomerQuoteDelete" asp-route-id="@item.DeskQuoteID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </table>
         </dd>
     </dl>
-    <div class="row">
-        <div class="col-md-4">
-            <form method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="DeskQuote.Id" />
-                <div class="form-group">
-                    <label asp-for="DeskSpecs.DeskType" class="control-label">Desktop material</label>
-                    <select asp-for="DeskSpecs.DeskType" class="form-control" asp-items="ViewBag.DeskTypeCode">
-                    </select>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn" />
-                </div>
-            </form>
-        </div>
-    </div>
-
     <div>
-        <a asp-page="DeskQuoteDesks" asp-route-id="@Model.Customer.Id">
-            Back to Customer Desks
+        <a asp-page="CustomerQuoteCreate" asp-route-id="@Model.Customer.CustomerID">
+            Create New Quote
+        </a>
+        <a asp-page="Customer" asp-route-id="@Model.Customer.CustomerID">
+            Back to Customer
         </a>
     </div>
 </div>

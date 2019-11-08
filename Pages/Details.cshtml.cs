@@ -18,7 +18,7 @@ namespace MDeskRP.Pages
             _context = context;
         }
 
-        public Customer Customer { get; set; }
+        public Models.Customer Customer { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {

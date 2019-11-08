@@ -20,7 +20,7 @@ namespace MDeskRP.Pages.Customer
         }
 
         [BindProperty]
-        public Customer Customer { get; set; }
+        public Models.Customer Customer { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
