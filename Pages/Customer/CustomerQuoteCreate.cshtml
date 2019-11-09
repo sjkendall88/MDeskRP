@@ -6,7 +6,7 @@
 
     <h1>Create Customer Quote</h1>
 
-    <h4>Customer</h4>
+    @*<h4>Customer</h4>*@
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -27,12 +27,12 @@
         <dd>
             @Html.DisplayFor(model => model.Customer.LastName)
         </dd>
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.Customer.DeskQuotes)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Customer.DeskQuotes)
-        </dd>
+        </dd>*@
     </dl>
 <div class="row">
     <div class="col-md-4">
@@ -57,20 +57,28 @@
             </div>
             <div class="form-group">
                 <label asp-for="DeskSpecs.DeskTypeString" class="control-label"></label>
-                <select asp-for="DeskSpecs.DeskTypeString" class="form-control"
+                @*<select asp-for="DeskSpecs.DeskTypeString" class="form-control"
                         asp-items="ViewBag.DeskTypeString">
-                </select>
+                </select>*@
+            <select asp-for="DeskSpecs.DeskTypeString" class="form-control"
+                    name="material">
+                <option value="Pine">Pine</option>
+                <option value="Veneer">Veneer</option>
+                <option value="Laminate">Laminate</option>
+                <option value="Oak">Oak</option>
+                <option value="Rosewood">Rosewood</option>
+            </select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-success btn-main m-1" role="button" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="CustomerQuote" asp-route-id="@Model.Customer.CustomerID">
-        Back to Customer Quote
+    <a asp-page="CustomerQuote" asp-route-id="@Model.Customer.CustomerID" class="btn btn-mine btn-main m-1" role="button">
+        Quotes
     </a>
 </div>
 

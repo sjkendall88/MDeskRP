@@ -39,12 +39,14 @@ namespace MDeskRP.Models
         /// </summary>
         [Required]
         [Range(MIN_DRAWER, MAX_DRAWER, ErrorMessage = "Number of drawers must be 0-7")]
+        [Display(Name = "Number of drawers")]
         public string NumOfDrawers { get; set; }
 
         /// <summary>
         /// type of desktop material
         /// </summary>
         [DefaultValue(DeskTypeEnum.Laminate)]
+        [Display(Name = "Desktop material")]
         public DeskTypeEnum DeskTypeString { get; set; }
 
         /// <summary>
@@ -57,7 +59,8 @@ namespace MDeskRP.Models
         /// </summary>
         [Required]
         //[Range((3,5,7), ErrorMessage = "Rush order options are 3, 5 or 7 days")]
-        [RegularExpression(@"^[3,5,7,14]+$")]
+        [RegularExpression(@"^[3,5,7,14]*$")]
+        [Display(Name = "Rush days")]
         public string RushDays { get; set; }
 
         /// <summary>
