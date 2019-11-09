@@ -1,6 +1,22 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+* {
+    font-family: "Pontano Sans";
+    color: #1c4b8a;
+}
+
+h1 {
+    font-family: "Hammersmith One";
+}
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -18,16 +34,60 @@ a {
   border-color: #1861ac;
 }
 
+.btn-mine {
+    color: #ffffff;
+    background-color: #1c4b8a;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.btn-main {
+    width: 12em;
+}
+
+.btn-crud {
+    width: 4.5em;
+}
+
+.deleteWarn {
+    color: #dc3545;
+}
+
+    .btn-mine:hover {
+        color: #ffffff;
+        background-color: #266cc9;
+    }
+
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
 
+.aboutPage {
+    background-image: url("../images/legoDesk.jpg");
+    width: 50vw;
+    height: auto;
+}
+
+.deskImg {
+    width: 50vw;
+    height: auto;
+}
+
+.blueDesk {
+    background-color: #25374F;
+    color: #ffffff;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 @media (min-width: 768px) {
   html {
