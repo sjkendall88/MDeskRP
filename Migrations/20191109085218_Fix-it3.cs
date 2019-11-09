@@ -2,7 +2,7 @@
 
 namespace MDeskRP.Migrations
 {
-    public partial class Fixit4 : Migration
+    public partial class Fixit3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -98,6 +98,13 @@ namespace MDeskRP.Migrations
                 oldClrType: typeof(int),
                 oldType: "int");
 
+            migrationBuilder.AddColumn<int>(
+                name: "DeskCost",
+                table: "DeskQuote",
+                type: "int",
+                nullable: false,
+                defaultValue: 0);
+
             migrationBuilder.CreateIndex(
                 name: "IX_DeskSpecs_Desktop type",
                 table: "DeskSpecs",
@@ -121,6 +128,10 @@ namespace MDeskRP.Migrations
             migrationBuilder.DropIndex(
                 name: "IX_DeskSpecs_Desktop type",
                 table: "DeskSpecs");
+
+            migrationBuilder.DropColumn(
+                name: "DeskCost",
+                table: "DeskQuote");
 
             migrationBuilder.RenameColumn(
                 name: "Rush Days",

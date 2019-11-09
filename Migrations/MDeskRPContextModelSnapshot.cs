@@ -67,6 +67,9 @@ namespace MDeskRP.Migrations
                     b.Property<int>("CustomerID")
                         .HasColumnType("int");
 
+                    b.Property<int>("DeskCost")
+                        .HasColumnType("int");
+
                     b.Property<int>("DeskSpecsID")
                         .HasColumnType("int");
 
@@ -154,7 +157,7 @@ namespace MDeskRP.Migrations
                 {
                     b.HasOne("MDeskRP.Models.DeskTypeDescription", "DeskTypeDescription")
                         .WithMany("DeskQuote")
-                        .HasForeignKey("DeskType")
+                        .HasForeignKey("DeskTypeString")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
