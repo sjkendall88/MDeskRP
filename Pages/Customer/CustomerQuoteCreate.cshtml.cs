@@ -44,7 +44,7 @@ namespace MDeskRP.Pages.Customer
                 return NotFound();
             }
 
-            ViewData["DeskTypeString"] = new SelectList(_context.DeskTypeDescription, "DeskTypeString", "DataType",
+            ViewData["DeskTypeString"] = new SelectList(_context.DeskTypeDescription, "DeskTypeString", "DeskTypeString",
                DeskTypeEnum.Laminate);
             return Page();
         }
