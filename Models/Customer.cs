@@ -50,7 +50,7 @@ namespace MDeskRP.Models
         /// customer street 
         /// </summary>
         [RegularExpression(@"^[a-zA-Z0-9""'\s-]*$")]
-        [Display(Name = "Street address")]
+        [Display(Name = "Street")]
         public string StreetAddress { get; set; }
 
         /// <summary>
