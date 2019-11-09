@@ -130,7 +130,7 @@ namespace MDeskRP.Migrations
                         .HasColumnType("nvarchar(40)")
                         .HasMaxLength(40);
 
-                    b.HasKey("DeskType");
+                    b.HasKey("DeskTypeString");
 
                     b.ToTable("DeskTypeDescription");
                 });
