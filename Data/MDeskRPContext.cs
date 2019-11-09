@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 using MDeskRP.Data;
@@ -20,8 +21,12 @@ namespace MDeskRP.Models
         public DbSet<MDeskRP.Models.Customer> Customer { get; set; }
 
         public DbSet<MDeskRP.Models.DeskQuote> DeskQuote { get; set; }
+        
         public DbSet<MDeskRP.Models.DeskSpecs> DeskSpecs { get; set; }
+        
         public DbSet<MDeskRP.Models.DeskTypeDescription> DeskTypeDescription { get; set; }
+
+        public IAsyncEnumerable<DeskTypeEnum> DeskTypeEnum { get; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -36,6 +36,11 @@ namespace MDeskRP.Models
         public int DeskSpecsID { get; set; }
 
         /// <summary>
+        /// Desk Cost
+        /// </summary>
+        public int DeskCost { get; set; }
+
+        /// <summary>
         /// Desk Specifications
         /// </summary>
         public DeskSpecs DeskSpecs { get; set; }

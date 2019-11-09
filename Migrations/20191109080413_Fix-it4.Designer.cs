@@ -4,14 +4,16 @@ using MDeskRP.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MDeskRP.Migrations
 {
     [DbContext(typeof(MDeskRPContext))]
-    partial class MDeskRPContextModelSnapshot : ModelSnapshot
+    [Migration("20191109080413_Fix-it4")]
+    partial class Fixit4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -130,7 +132,7 @@ namespace MDeskRP.Migrations
                         .HasColumnType("nvarchar(40)")
                         .HasMaxLength(40);
 
-                    b.HasKey("DeskType");
+                    b.HasKey("DeskTypeString");
 
                     b.ToTable("DeskTypeDescription");
                 });
@@ -154,7 +156,7 @@ namespace MDeskRP.Migrations
                 {
                     b.HasOne("MDeskRP.Models.DeskTypeDescription", "DeskTypeDescription")
                         .WithMany("DeskQuote")
-                        .HasForeignKey("DeskType")
+                        .HasForeignKey("DeskTypeString")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

@@ -26,6 +26,8 @@ namespace MDeskRP.Data
             builder.Property(q => q.DeskSpecsID)
                 .IsRequired()
                 .HasColumnType("int");
+            builder.Property(q => q.DeskCost)
+                .HasColumnType("int");
             builder.HasOne(q => q.DeskSpecs)
                 .WithMany(q => q.DeskQuotes)
                 .HasForeignKey(q => q.DeskSpecsID)
