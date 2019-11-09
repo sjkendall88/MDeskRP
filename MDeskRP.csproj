@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20191108054805_Added-DeskType.cs" />
+    <Compile Remove="Migrations\20191108054805_Added-DeskType.Designer.cs" />
+    <Compile Remove="Migrations\20191108055458_Added-DeskTypes.cs" />
+    <Compile Remove="Migrations\20191108055458_Added-DeskTypes.Designer.cs" />
+    <Compile Remove="Migrations\20191108064148_Altered-enum.cs" />
+    <Compile Remove="Migrations\20191108064148_Altered-enum.Designer.cs" />
+    <Compile Remove="Migrations\20191109004605_Add-DeskTypeDesc.cs" />
+    <Compile Remove="Migrations\20191109004605_Add-DeskTypeDesc.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
       <PrivateAssets>all</PrivateAssets>

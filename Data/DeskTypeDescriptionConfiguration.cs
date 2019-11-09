@@ -15,7 +15,6 @@ namespace MDeskRP.Data
             builder.ToTable("DeskTypeDescription");
             builder.HasKey(d => d.DeskTypeString);
             builder.Property(d => d.DeskTypeString)
-                .HasColumnType("nvarchar(15)")
                 .HasConversion(
                     d => d.ToString(),
                     d => (DeskTypeEnum) Enum.Parse(typeof(DeskTypeEnum), d));

@@ -2,7 +2,7 @@
 
 namespace MDeskRP.Migrations
 {
-    public partial class AddDeskTypeDesc : Migration
+    public partial class AddDeskTypeDes : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MDeskRP.Migrations
 {
     [DbContext(typeof(MDeskRPContext))]
-    [Migration("20191108064550_Altered-enum1")]
-    partial class Alteredenum1
+    [Migration("20191109014016_Add-DeskTypeDesc")]
+    partial class AddDeskTypeDesc
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -93,7 +93,7 @@ namespace MDeskRP.Migrations
                         .HasColumnType("nvarchar(2)")
                         .HasMaxLength(2);
 
-                    b.Property<string>("DeskType")
+                    b.Property<string>("DeskTypeString")
                         .IsRequired()
                         .HasColumnName("Desktop type")
                         .HasColumnType("varchar(30)");
@@ -117,7 +117,7 @@ namespace MDeskRP.Migrations
 
                     b.HasKey("DeskSpecsID");
 
-                    b.HasIndex("DeskType");
+                    b.HasIndex("DeskTypeString");
 
                     b.ToTable("DeskSpecs");
                 });
@@ -125,7 +125,7 @@ namespace MDeskRP.Migrations
             modelBuilder.Entity("MDeskRP.Models.DeskTypeDescription", b =>
                 {
                     b.Property<string>("DeskTypeString")
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("DeskType")
                         .IsRequired()
@@ -156,7 +156,7 @@ namespace MDeskRP.Migrations
                 {
                     b.HasOne("MDeskRP.Models.DeskTypeDescription", "DeskTypeDescription")
                         .WithMany("DeskQuote")
-                        .HasForeignKey("DeskType")
+                        .HasForeignKey("DeskTypeString")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

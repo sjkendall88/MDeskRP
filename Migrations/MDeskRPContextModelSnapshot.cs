@@ -123,7 +123,7 @@ namespace MDeskRP.Migrations
             modelBuilder.Entity("MDeskRP.Models.DeskTypeDescription", b =>
                 {
                     b.Property<string>("DeskTypeString")
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("DeskType")
                         .IsRequired()
