@@ -28,7 +28,9 @@ namespace MDeskRP.Models
             modelBuilder.ApplyConfiguration(new DeskQuoteConfiguration());
             modelBuilder.ApplyConfiguration(new DeskSpecsConfiguration());
             modelBuilder.ApplyConfiguration(new DeskTypeDescriptionConfiguration());
-            // modelBuilder.ApplyConfiguration(new );
+            modelBuilder.ApplyConfiguration(new );
         }
     }
+}
+
 }
