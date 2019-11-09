@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MDeskRP.Migrations
 {
     [DbContext(typeof(MDeskRPContext))]
-    [Migration("20191109014016_Add-DeskTypeDesc")]
-    partial class AddDeskTypeDesc
+    [Migration("20191109051449_Fix-it3")]
+    partial class Fixit3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -89,48 +89,37 @@ namespace MDeskRP.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Depth")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(2)")
-                        .HasMaxLength(2);
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DeskTypeString")
-                        .IsRequired()
-                        .HasColumnName("Desktop type")
-                        .HasColumnType("varchar(30)");
+                    b.Property<int?>("DeskTypeDescriptionDeskTypeString")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DeskTypeString")
+                        .HasColumnType("int");
 
                     b.Property<string>("NumOfDrawers")
-                        .IsRequired()
-                        .HasColumnName("Number of Drawers")
-                        .HasColumnType("nvarchar(1)")
-                        .HasMaxLength(1);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RushDays")
-                        .IsRequired()
-                        .HasColumnName("Rush Days")
-                        .HasColumnType("nvarchar(1)")
-                        .HasMaxLength(1);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Width")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(2)")
-                        .HasMaxLength(2);
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DeskSpecsID");
 
-                    b.HasIndex("DeskTypeString");
+                    b.HasIndex("DeskTypeDescriptionDeskTypeString");
 
                     b.ToTable("DeskSpecs");
                 });
 
             modelBuilder.Entity("MDeskRP.Models.DeskTypeDescription", b =>
                 {
-                    b.Property<string>("DeskTypeString")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("DeskTypeString")
+                        .HasColumnType("int");
 
                     b.Property<string>("DeskType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(40)")
-                        .HasMaxLength(40);
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DeskTypeString");
 
@@ -156,9 +145,7 @@ namespace MDeskRP.Migrations
                 {
                     b.HasOne("MDeskRP.Models.DeskTypeDescription", "DeskTypeDescription")
                         .WithMany("DeskQuote")
-                        .HasForeignKey("DeskTypeString")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DeskTypeDescriptionDeskTypeString");
                 });
 #pragma warning restore 612, 618
         }

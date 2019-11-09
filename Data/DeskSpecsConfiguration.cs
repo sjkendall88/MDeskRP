@@ -40,7 +40,7 @@ namespace MDeskRP.Data
                 .HasColumnType("varchar(30)")
                 .HasConversion(
                     s => s.ToString(),
-                    s => (DeskTypeEnum) Enum.Parse(typeof(DeskTypeEnum), s));
+                    s => (DeskTypeEnum)Enum.Parse(typeof(DeskTypeEnum), s));
             builder.HasOne(s => s.DeskTypeDescription)
                 .WithMany(dd => dd.DeskQuote)
                 .HasForeignKey(s => s.DeskTypeString);

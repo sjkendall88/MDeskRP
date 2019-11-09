@@ -4,14 +4,16 @@ using MDeskRP.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MDeskRP.Migrations
 {
     [DbContext(typeof(MDeskRPContext))]
-    partial class MDeskRPContextModelSnapshot : ModelSnapshot
+    [Migration("20191109043245_Fix-it")]
+    partial class Fixit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -89,12 +91,6 @@ namespace MDeskRP.Migrations
                     b.Property<string>("Depth")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("DeskTypeDescriptionDeskTypeString")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DeskTypeString")
-                        .HasColumnType("int");
-
                     b.Property<string>("NumOfDrawers")
                         .HasColumnType("nvarchar(max)");
 
@@ -106,22 +102,7 @@ namespace MDeskRP.Migrations
 
                     b.HasKey("DeskSpecsID");
 
-                    b.HasIndex("DeskTypeDescriptionDeskTypeString");
-
                     b.ToTable("DeskSpecs");
-                });
-
-            modelBuilder.Entity("MDeskRP.Models.DeskTypeDescription", b =>
-                {
-                    b.Property<int>("DeskTypeString")
-                        .HasColumnType("int");
-
-                    b.Property<string>("DeskType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("DeskTypeString");
-
-                    b.ToTable("DeskTypeDescription");
                 });
 
             modelBuilder.Entity("MDeskRP.Models.DeskQuote", b =>
@@ -137,13 +118,6 @@ namespace MDeskRP.Migrations
                         .HasForeignKey("DeskSpecsID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("MDeskRP.Models.DeskSpecs", b =>
-                {
-                    b.HasOne("MDeskRP.Models.DeskTypeDescription", "DeskTypeDescription")
-                        .WithMany("DeskQuote")
-                        .HasForeignKey("DeskTypeDescriptionDeskTypeString");
                 });
 #pragma warning restore 612, 618
         }

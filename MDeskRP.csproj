@@ -13,6 +13,8 @@
     <Compile Remove="Migrations\20191108064148_Altered-enum.Designer.cs" />
     <Compile Remove="Migrations\20191109004605_Add-DeskTypeDesc.cs" />
     <Compile Remove="Migrations\20191109004605_Add-DeskTypeDesc.Designer.cs" />
+    <Compile Remove="Migrations\20191109014016_Add-DeskTypeDesc.cs" />
+    <Compile Remove="Migrations\20191109014016_Add-DeskTypeDesc.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

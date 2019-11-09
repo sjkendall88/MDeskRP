@@ -12,6 +12,7 @@ namespace MDeskRP.Models
         /// <summary>
         /// desk width
         /// </summary>
+        [Key]
         public DeskTypeEnum DeskTypeString { get; set; } // ie projectstatecode
 
         /// <summary>
