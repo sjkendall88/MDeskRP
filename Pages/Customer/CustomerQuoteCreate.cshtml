@@ -1,0 +1,79 @@
+﻿@page
+@model MDeskRP.Pages.Customer.CustomerQuoteCreateModel
+@{
+    ViewData["Title"] = "CustomerQuoteCreate";
+}
+
+    <h1>Create Customer Quote</h1>
+
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.CustomerID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.CustomerID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.LastName)
+        </dd>
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Customer.DeskQuotes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.DeskQuotes)
+        </dd>*@
+    </dl>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Customer.CustomerID" />
+            <div class="form-group">
+                <label asp-for="DeskSpecs.Depth" class="control-label"></label>
+                <input asp-for="DeskSpecs.Depth" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="DeskSpecs.Width" class="control-label"></label>
+                <input asp-for="DeskSpecs.Width" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="DeskSpecs.NumOfDrawers" class="control-label"></label>
+                <input asp-for="DeskSpecs.NumOfDrawers" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="DeskSpecs.RushDays" class="control-label"></label>
+                <input asp-for="DeskSpecs.RushDays" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="DeskSpecs.DeskTypeString" class="control-label"></label>
+                <select asp-for="DeskSpecs.DeskTypeString" class="form-control"
+                        asp-items="ViewBag.DeskTypeString">
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="CustomerQuote" asp-route-id="@Model.Customer.CustomerID">
+        Back to Customer Quote
+    </a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

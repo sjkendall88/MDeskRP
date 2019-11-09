@@ -35,7 +35,7 @@ namespace MDeskRP.Data
                 .HasColumnType("nvarchar(1)")
                 .HasMaxLength(1)
                 .IsRequired();
-            builder.Property(s => s.DeskType)
+            builder.Property(s => s.DeskTypeString)
                 .HasColumnName("Desktop type")
                 .HasColumnType("varchar(30)")
                 .HasConversion(
@@ -43,7 +43,7 @@ namespace MDeskRP.Data
                     s => (DeskTypeEnum) Enum.Parse(typeof(DeskTypeEnum), s));
             builder.HasOne(s => s.DeskTypeDescription)
                 .WithMany(dd => dd.DeskQuote)
-                .HasForeignKey(s => s.DeskType);
+                .HasForeignKey(s => s.DeskTypeString);
         }
     }
 }

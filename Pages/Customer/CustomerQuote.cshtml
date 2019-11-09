@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id:int?}"
 @model MDeskRP.Pages.Customer.CustomerQuoteModel
 @{
     ViewData["Title"] = "CustomerQuote";
@@ -65,7 +65,7 @@
     <div>
         <a asp-page="CustomerQuoteCreate" asp-route-id="@Model.Customer.CustomerID">
             Create New Quote
-        </a>
+        </a> | 
         <a asp-page="Customer" asp-route-id="@Model.Customer.CustomerID">
             Back to Customer
         </a>

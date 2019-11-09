@@ -10,16 +10,16 @@ namespace MDeskRP.Models
         /// <summary>
         /// desk width
         /// </summary>
-        public DeskTypeEnum DeskTypeString { get; set; }
+        public DeskTypeEnum DeskTypeString { get; set; } // ie projectstatecode
 
         /// <summary>
         /// desk width
         /// </summary>
-        public string DeskType { get; set; }
+        public string DeskType { get; set; } // ie statedescription
 
         /// <summary>
         /// desk width
         /// </summary>
-        public IEnumerable<DeskSpecs> DeskQuote { get; set; }
+        public IEnumerable<DeskSpecs> DeskQuote { get; set; } // ie Project/project
     }
 }

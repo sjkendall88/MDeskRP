@@ -33,7 +33,7 @@ namespace MDeskRP.Models
         /// type of desktop material
         /// </summary>
         [DefaultValue(DeskTypeEnum.Laminate)]
-        public DeskTypeEnum DeskType { get; set; }
+        public DeskTypeEnum DeskTypeString { get; set; }
 
         /// <summary>
         /// type of desktop material Description
