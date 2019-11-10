@@ -30,7 +30,7 @@ namespace MDeskRP.Pages.Customer
 
         public async Task<IActionResult> OnGet(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -44,17 +44,17 @@ namespace MDeskRP.Pages.Customer
                 return NotFound();
             }
 
-            ViewData["DeskTypeString"] = new SelectList(_context.DeskTypeDescription, "DeskTypeString", "DeskTypeString",
-               DeskTypeEnum.Laminate);
+            //ViewData["DeskTypeString"] = new SelectList(_context.DeskTypeDescription, "DeskTypeString", "DeskTypeString",
+            //   DeskTypeEnum.Laminate);
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return Page();
+            //}
 
             DeskQuote.CustomerID = Customer.CustomerID;
             DeskQuote.DeskSpecsID = DeskSpecs.DeskSpecsID;
