@@ -1,39 +1,46 @@
 ﻿@page
+@using Microsoft.EntityFrameworkCore.Storage
 @model MDeskRP.Pages.Customer.CustomerQuoteCreateModel
 @{
     ViewData["Title"] = "CustomerQuoteCreate";
 }
+@{  var imagePath= "/images/oak.jpg";
+    //if (Request["material"] != null)
+    //{
+    //    imagePath = @"images\" + Request["material"];
+}
+}
 
-    <h1>Create Customer Quote</h1>
+<h1>Create Customer Quote</h1>
 
-    @*<h4>Customer</h4>*@
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Customer.CustomerID)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Customer.CustomerID)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Customer.FirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Customer.FirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Customer.LastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Customer.LastName)
-        </dd>
-        @*<dt>
+@*<h4>Customer</h4>*@
+<hr />
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Customer.CustomerID)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Customer.CustomerID)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Customer.FirstName)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Customer.FirstName)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Customer.LastName)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Customer.LastName)
+    </dd>
+    @*<dt>
             @Html.DisplayNameFor(model => model.Customer.DeskQuotes)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Customer.DeskQuotes)
         </dd>*@
-    </dl>
+</dl>
 <div class="row">
     <div class="col-md-4">
         <form method="post">
@@ -58,19 +65,25 @@
             <div class="form-group">
                 <label asp-for="DeskSpecs.DeskTypeString" class="control-label"></label>
                 @*<select asp-for="DeskSpecs.DeskTypeString" class="form-control"
-                        asp-items="ViewBag.DeskTypeString">
-                </select>*@
-            <select asp-for="DeskSpecs.DeskTypeString" class="form-control"
-                    name="material">
-                <option value="Pine">Pine</option>
-                <option value="Veneer">Veneer</option>
-                <option value="Laminate">Laminate</option>
-                <option value="Oak">Oak</option>
-                <option value="Rosewood">Rosewood</option>
-            </select>
+                            asp-items="ViewBag.DeskTypeString">
+                    </select>*@
+                <select asp-for="DeskSpecs.DeskTypeString" class="form-control" name="material">
+                    <option value="pine">Pine</option>
+                    <option value="veneer">Veneer</option>
+                    <option value="laminate">Laminate</option>
+                    <option value="oak">Oak</option>
+                    <option value="rosewood">Rosewood</option>
+                </select><br />
+                <div class="col-md-4"><img src="/images/pine.jpg" alt="flooring option" /></div>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-success btn-main m-1" role="button" />
+            </div>
+            <div>
+                @if (imagePath != "")
+                    {
+                        <img src="@imagePath" alt="flooring option"/>
+                    }
             </div>
         </form>
     </div>
@@ -78,9 +91,10 @@
 
 <div>
     <a asp-page="CustomerQuote" asp-route-id="@Model.Customer.CustomerID" class="btn btn-mine btn-main m-1" role="button">
-        Quotes
+        Customer Quotes
     </a>
 </div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

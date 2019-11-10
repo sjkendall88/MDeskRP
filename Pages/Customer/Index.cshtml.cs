@@ -72,28 +72,10 @@ namespace MDeskRP.Pages.Customer
                 if (!string.IsNullOrEmpty(NameList))
                 {
                     customers = customers.Where(x => x.LastName == NameList);
-                }
+                } 
+                Customers = new SelectList(await customerQuery.Distinct().ToListAsync());
+                Customer = await customers.AsNoTracking().ToListAsync();
 
-               Customers = new SelectList(await customerQuery.Distinct().ToListAsync());
-               Customer = await customers.AsNoTracking().ToListAsync();
-
-                //using input for searching notes
-                //IQueryable<string> noteQuery = from n in _context.Customer
-                //                               orderby n.Notes
-                //                               select n.Notes;
-
-                //if (!string.IsNullOrEmpty(SearchString2))
-                //{
-                //    bookEntries = bookEntries.Where(s2 => s2.Notes.Contains(SearchString2));
-                //}
-
-                //if (!string.IsNullOrEmpty(NoteList))
-                //{
-                //    bookEntries = bookEntries.Where(x2 => x2.Notes == NoteList);
-                //}
-
-                //Note = new SelectList(await noteQuery.Distinct().ToListAsync());
-                //Entries = await bookEntries.ToListAsync();
             }
         }
     }

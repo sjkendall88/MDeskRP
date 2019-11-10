@@ -29,9 +29,8 @@ namespace MDeskRP.Pages.Customer
         public DeskSpecs DeskSpecs { get; set; }
 
         public async Task<IActionResult> OnGet(int? id)
-        //public async Task<IActionResult> OnPost(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return NotFound();
             }
