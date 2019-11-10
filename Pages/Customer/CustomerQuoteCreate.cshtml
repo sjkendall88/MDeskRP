@@ -4,12 +4,6 @@
 @{
     ViewData["Title"] = "CustomerQuoteCreate";
 }
-@{  var imagePath= "/images/oak.jpg";
-    //if (Request["material"] != null)
-    //{
-    //    imagePath = @"images\" + Request["material"];
-}
-}
 
 <h1>Create Customer Quote</h1>
 
@@ -65,25 +59,24 @@
             <div class="form-group">
                 <label asp-for="DeskSpecs.DeskTypeString" class="control-label"></label>
                 @*<select asp-for="DeskSpecs.DeskTypeString" class="form-control"
-                            asp-items="ViewBag.DeskTypeString">
-                    </select>*@
-                <select asp-for="DeskSpecs.DeskTypeString" class="form-control" name="material">
+                asp-items="ViewBag.DeskTypeString">
+        </select>*@
+                <select asp-for="DeskSpecs.DeskTypeString" class="form-control" name="material" onchange="getSrc(this.value)">
                     <option value="pine">Pine</option>
                     <option value="veneer">Veneer</option>
                     <option value="laminate">Laminate</option>
                     <option value="oak">Oak</option>
                     <option value="rosewood">Rosewood</option>
                 </select><br />
-                <div class="col-md-4"><img src="/images/pine.jpg" alt="flooring option" /></div>
+                <div class="col-md-4" id="desktopPic">
+                    <img src="/images/pine.jpg" id="myTopImg" alt="flooring option"/>
+                </div>
+
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-success btn-main m-1" role="button" />
             </div>
             <div>
-                @if (imagePath != "")
-                    {
-                        <img src="@imagePath" alt="flooring option"/>
-                    }
             </div>
         </form>
     </div>
